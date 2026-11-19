@@ -12,7 +12,6 @@ A simple hybrid notepad app built with Python and Tkinter that blends everyday n
 - Switch between small, medium, and large brush sizes
 - Erase with the right mouse button
 - Clear the whole canvas
-- Live clock in the corner
 
 ## Run it
 
