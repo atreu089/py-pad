@@ -3,11 +3,12 @@
 A simple hybrid notepad app built with Python and Tkinter that blends everyday notes, task checklists, and freehand drawing.
 
 > This project is still a work in progress and is currently in
-> Version 0.1
+> Version 0.2 W.I.P
 
 ## Features
 
-- Draw on a white canvas
+- Add Text
+- Draw or write on a white canvas
 - Choose red, blue, or black ink
 - Switch between small, medium, and large brush sizes
 - Erase with the right mouse button
