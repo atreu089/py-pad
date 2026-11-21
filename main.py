@@ -10,18 +10,30 @@ canvas.pack()
 current_color = "black"
 brush_size = 2
 mode = "draw"
+last_x, last_y = None, None
 
 
 def paint(event):
-    if mode == "draw": 
-        canvas.create_oval(
-            event.x - brush_size,
-            event.y - brush_size,
-            event.x + brush_size,
-            event.y + brush_size,
-            fill=current_color,
-            outline=current_color,
-        )
+    global last_x, last_y
+    if mode == "draw":
+        if last_x is not None and last_y is not None:
+            canvas.create_line(
+                last_x,
+                last_y,
+                event.x,
+                event.y,
+                fill=current_color,
+                width=brush_size * 2,
+                capstyle=tk.ROUND,
+                smooth=True,
+            )
+        last_x, last_y = event.x, event.y
+
+
+
+def reset_last_pos(event):
+    global last_x, last_y
+    last_x, last_y = None, None
 
 
 def erase(event):
@@ -66,6 +78,7 @@ def add_text(event):
 canvas.bind("<B1-Motion>", paint)
 canvas.bind("<B3-Motion>", erase)
 canvas.bind("<Button-1>", add_text)
+canvas.bind("<ButtonRelease-1>", reset_last_pos)
 
 # COLORS
 clear_btn = tk.Button(root, text="Clear", command=clear_canvas)
